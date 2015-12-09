@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTitle = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblStandardSpaces = new System.Windows.Forms.Label();
@@ -45,8 +46,19 @@
             this.btnEnter = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblbarrierTitle = new System.Windows.Forms.TextBox();
+            this.txtBarrierStatus = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.systemMessages = new System.Windows.Forms.TextBox();
+            this.btnTakeCoin = new System.Windows.Forms.Button();
+            this.timeBarrier = new System.Windows.Forms.Timer(this.components);
+            this.btnStandard = new System.Windows.Forms.Button();
+            this.btnDisabled = new System.Windows.Forms.Button();
+            this.btnReturnCoin = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -83,7 +95,7 @@
             this.lblStandardSpaces.Name = "lblStandardSpaces";
             this.lblStandardSpaces.Size = new System.Drawing.Size(19, 19);
             this.lblStandardSpaces.TabIndex = 3;
-            this.lblStandardSpaces.Text = "5";
+            this.lblStandardSpaces.Text = "4";
             // 
             // lblDisabledSpaces
             // 
@@ -93,7 +105,7 @@
             this.lblDisabledSpaces.Name = "lblDisabledSpaces";
             this.lblDisabledSpaces.Size = new System.Drawing.Size(19, 19);
             this.lblDisabledSpaces.TabIndex = 1;
-            this.lblDisabledSpaces.Text = "0";
+            this.lblDisabledSpaces.Text = "4";
             // 
             // lblStandardTitle
             // 
@@ -163,6 +175,7 @@
             this.standardSpacesToolStripMenuItem.Name = "standardSpacesToolStripMenuItem";
             this.standardSpacesToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.standardSpacesToolStripMenuItem.Text = "Standard Spaces";
+            this.standardSpacesToolStripMenuItem.Click += new System.EventHandler(this.standardSpacesToolStripMenuItem_Click);
             // 
             // disabledSpacesToolStripMenuItem
             // 
@@ -205,13 +218,134 @@
             this.groupBox2.Size = new System.Drawing.Size(273, 180);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Coins";
+            this.groupBox2.Text = "Taken Coins";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.lblbarrierTitle);
+            this.groupBox3.Controls.Add(this.txtBarrierStatus);
+            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.systemMessages);
+            this.groupBox3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(174, 73);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(312, 140);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "System Messages";
+            // 
+            // lblbarrierTitle
+            // 
+            this.lblbarrierTitle.BackColor = System.Drawing.Color.Black;
+            this.lblbarrierTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblbarrierTitle.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblbarrierTitle.ForeColor = System.Drawing.Color.White;
+            this.lblbarrierTitle.Location = new System.Drawing.Point(6, 100);
+            this.lblbarrierTitle.Multiline = true;
+            this.lblbarrierTitle.Name = "lblbarrierTitle";
+            this.lblbarrierTitle.Size = new System.Drawing.Size(115, 20);
+            this.lblbarrierTitle.TabIndex = 2;
+            this.lblbarrierTitle.Text = "Barrier status:";
+            // 
+            // txtBarrierStatus
+            // 
+            this.txtBarrierStatus.BackColor = System.Drawing.Color.Black;
+            this.txtBarrierStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBarrierStatus.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBarrierStatus.ForeColor = System.Drawing.Color.Red;
+            this.txtBarrierStatus.Location = new System.Drawing.Point(6, 97);
+            this.txtBarrierStatus.Multiline = true;
+            this.txtBarrierStatus.Name = "txtBarrierStatus";
+            this.txtBarrierStatus.Size = new System.Drawing.Size(300, 26);
+            this.txtBarrierStatus.TabIndex = 1;
+            this.txtBarrierStatus.Text = "Lowered";
+            this.txtBarrierStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.Black;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.Lime;
+            this.textBox1.Location = new System.Drawing.Point(6, 175);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(300, 26);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // systemMessages
+            // 
+            this.systemMessages.BackColor = System.Drawing.Color.Black;
+            this.systemMessages.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.systemMessages.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.systemMessages.ForeColor = System.Drawing.Color.Lime;
+            this.systemMessages.Location = new System.Drawing.Point(6, 26);
+            this.systemMessages.Multiline = true;
+            this.systemMessages.Name = "systemMessages";
+            this.systemMessages.Size = new System.Drawing.Size(300, 97);
+            this.systemMessages.TabIndex = 0;
+            this.systemMessages.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btnTakeCoin
+            // 
+            this.btnTakeCoin.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.btnTakeCoin.Location = new System.Drawing.Point(6, 251);
+            this.btnTakeCoin.Name = "btnTakeCoin";
+            this.btnTakeCoin.Size = new System.Drawing.Size(147, 58);
+            this.btnTakeCoin.TabIndex = 1;
+            this.btnTakeCoin.Text = "Take Coin";
+            this.btnTakeCoin.UseVisualStyleBackColor = true;
+            this.btnTakeCoin.Click += new System.EventHandler(this.btnTakeCoin_Click);
+            // 
+            // timeBarrier
+            // 
+            this.timeBarrier.Interval = 10000;
+            this.timeBarrier.Tick += new System.EventHandler(this.timeBarrier_Tick);
+            // 
+            // btnStandard
+            // 
+            this.btnStandard.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStandard.Location = new System.Drawing.Point(6, 222);
+            this.btnStandard.Name = "btnStandard";
+            this.btnStandard.Size = new System.Drawing.Size(64, 23);
+            this.btnStandard.TabIndex = 8;
+            this.btnStandard.Text = "Standard";
+            this.btnStandard.UseVisualStyleBackColor = true;
+            this.btnStandard.Click += new System.EventHandler(this.btnStandard_Click);
+            // 
+            // btnDisabled
+            // 
+            this.btnDisabled.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDisabled.Location = new System.Drawing.Point(89, 222);
+            this.btnDisabled.Name = "btnDisabled";
+            this.btnDisabled.Size = new System.Drawing.Size(64, 23);
+            this.btnDisabled.TabIndex = 9;
+            this.btnDisabled.Text = "Disabled";
+            this.btnDisabled.UseVisualStyleBackColor = true;
+            this.btnDisabled.Click += new System.EventHandler(this.btnDisabled_Click);
+            // 
+            // btnReturnCoin
+            // 
+            this.btnReturnCoin.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturnCoin.Location = new System.Drawing.Point(6, 315);
+            this.btnReturnCoin.Name = "btnReturnCoin";
+            this.btnReturnCoin.Size = new System.Drawing.Size(147, 59);
+            this.btnReturnCoin.TabIndex = 10;
+            this.btnReturnCoin.Text = "Return a coin";
+            this.btnReturnCoin.UseVisualStyleBackColor = true;
+            this.btnReturnCoin.Click += new System.EventHandler(this.btnReturnCoin_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(40F, 77F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(765, 292);
+            this.ClientSize = new System.Drawing.Size(765, 423);
+            this.Controls.Add(this.btnReturnCoin);
+            this.Controls.Add(this.btnDisabled);
+            this.Controls.Add(this.btnStandard);
+            this.Controls.Add(this.btnTakeCoin);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.groupBox1);
@@ -222,11 +356,13 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(20, 18, 20, 18);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Secure Car Park System";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,6 +387,16 @@
         private System.Windows.Forms.Button btnEnter;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox systemMessages;
+        private System.Windows.Forms.Button btnTakeCoin;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBarrierStatus;
+        private System.Windows.Forms.Timer timeBarrier;
+        private System.Windows.Forms.Button btnStandard;
+        private System.Windows.Forms.Button btnDisabled;
+        private System.Windows.Forms.TextBox lblbarrierTitle;
+        private System.Windows.Forms.Button btnReturnCoin;
     }
 }
 
