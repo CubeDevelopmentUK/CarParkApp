@@ -56,9 +56,11 @@
             this.btnStandard = new System.Windows.Forms.Button();
             this.btnDisabled = new System.Windows.Forms.Button();
             this.btnReturnCoin = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -328,7 +330,7 @@
             // btnReturnCoin
             // 
             this.btnReturnCoin.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturnCoin.Location = new System.Drawing.Point(6, 315);
+            this.btnReturnCoin.Location = new System.Drawing.Point(18, 29);
             this.btnReturnCoin.Name = "btnReturnCoin";
             this.btnReturnCoin.Size = new System.Drawing.Size(147, 59);
             this.btnReturnCoin.TabIndex = 10;
@@ -336,12 +338,23 @@
             this.btnReturnCoin.UseVisualStyleBackColor = true;
             this.btnReturnCoin.Click += new System.EventHandler(this.btnReturnCoin_Click);
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btnReturnCoin);
+            this.groupBox4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(588, 222);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(177, 102);
+            this.groupBox4.TabIndex = 6;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Return and Payment";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(40F, 77F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(765, 423);
-            this.Controls.Add(this.btnReturnCoin);
+            this.ClientSize = new System.Drawing.Size(765, 330);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.btnDisabled);
             this.Controls.Add(this.btnStandard);
             this.Controls.Add(this.btnTakeCoin);
@@ -363,6 +376,7 @@
             this.menuStrip1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -397,6 +411,7 @@
         private System.Windows.Forms.Button btnDisabled;
         private System.Windows.Forms.TextBox lblbarrierTitle;
         private System.Windows.Forms.Button btnReturnCoin;
+        private System.Windows.Forms.GroupBox groupBox4;
     }
 }
 
